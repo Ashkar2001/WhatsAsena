@@ -34,10 +34,10 @@ Asena.addCommand({pattern: 'filter ?(.*)', fromMe: true, desc: Lang.FILTER_DESC,
     }
 }));
 
-Asena.addCommand({pattern: 'stop ?(.*)', fromMe: true, desc: Lang.STOP_DESC, usage: '.stop "merhaba"'}, (async (message, match) => {
+Asena.addCommand({pattern: 'stop ?(.*)', fromMe: true, desc: Lang.STOP_DESC, usage: '.stop "hello"'}, (async (message, match) => {
     match = match[1].match(/[\'\"\“](.*?)[\'\"\“]/gsm);
     if (match === null) {
-        return await message.sendMessage(Lang.NEED_REPLY + '\n*Örnek:* ```.stop "merhaba"```')
+        return await message.sendMessage(Lang.NEED_REPLY + '\n*Example:* ```.stop "hello"```')
     }
 
     del = await FilterDb.deleteFilter(message.jid, match[0].replace(/['"“]+/g, ''));
